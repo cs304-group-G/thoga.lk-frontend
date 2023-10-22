@@ -28,9 +28,11 @@ const Productpage = () => {
       </div>
       
       
-      <CommentsContainer className="mt-10" />
+      <CommentsContainer className="mt-10" logginedUserId="a"/>
     </>
   );
 };
 
 export default Productpage;
+
+
