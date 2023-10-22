@@ -4,6 +4,7 @@ import Carousel from "../components/Carousel";
 import Carauselvegi from "../components/Carauselvegi";
 import CarouselFruits from "../components/CarouselFruits";
 import CarouselFish from "../components/CarouselFish";
+import Footer from "../components/Footer";
 
 const Homepage = () => {
   return (
@@ -20,6 +21,7 @@ const Homepage = () => {
         <h1 className=" pb-[2rem] text-4xl font-semibold pl-10 pt-10">Fish</h1>
         <CarouselFish/>
       </div>
+      <Footer/>
 
       {/* <div className="grid grid-col-2 ">
         <div >
@@ -41,6 +43,9 @@ const Homepage = () => {
 
       </div> 
      */}
+
+     
+
 
      
     </>
