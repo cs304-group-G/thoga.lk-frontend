@@ -20,6 +20,7 @@ const router = createBrowserRouter(
       <Route index element={<Homepage />} />
       <Route path="/product" element={<Productpage />} />
       <Route path="/product-home" element={<Product />} />
+  
 
     </>
   )

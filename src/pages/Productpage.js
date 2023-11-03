@@ -7,25 +7,28 @@ const Productpage = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-2 container ">
-        <div className="flex justify-center">
-          <img
-            className="w-[60%] pt-[2.5rem] "
-            src="https://plus.unsplash.com/premium_photo-1678344170545-c3edef92a16e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-            alt=""
-          />
+      <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg mt-2  mb-3">
+    <div class="relative">
+        <img class="w-full" src="https://images.unsplash.com/photo-1603117869492-9f217038e19a?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product Image"/>
+        <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">SALE
         </div>
-        <div className="pt-[2.5rem] flex flex-col ">
-          <h2>Vegitable</h2>
-          <p>destription</p>
-          <span>Rs .500.00 per 1kg </span>
-          <h3>Gampaha</h3>
-          <p>chat</p>
-          <p>contact seller</p>
-          <p>see other item seller</p>
+    </div>
+    <div class="p-4">
+        <h3 class="text-lg font-medium mb-2">Carrot</h3>
+        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ante
+            vel eros fermentum faucibus sit amet euismod lorem.</p>
+        <div class="flex items-center justify-between">
+        <span className = 'space-x-1'>
+        <span class="font-bold text-md gap-2 border-[2px] p-2 rounded-md bg-gray-300 font-bold border-red-500 ">1 Kg</span>
+            <span class="font-bold text-lg">Rs 120.00</span>
+            </span>
+            
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+        Buy Now
+      </button>
         </div>
-        <div></div>
-      </div>
+    </div>
+</div>
       
       
       <CommentsContainer className="mt-10" logginedUserId="a"/>

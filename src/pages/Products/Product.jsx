@@ -14,6 +14,7 @@ import {
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
+  HomeIcon,
 } from "@heroicons/react/24/solid";
  
 import React from 'react'
@@ -27,11 +28,11 @@ export default function Product() {
         </Typography>
       </div>
       <List className="text-white">
-        <ListItem>
+        <ListItem >
           <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
+            <HomeIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Dashboard
+          <a href="/" className = 'space-x-2'>Home</a>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
@@ -45,7 +46,7 @@ export default function Product() {
           </ListItemPrefix>
           Inbox
           <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full ml-40 bg-gray-400 p-2" />
           </ListItemSuffix>
         </ListItem>
         <ListItem>
@@ -60,9 +61,9 @@ export default function Product() {
           </ListItemPrefix>
           Settings
         </ListItem>
-        <button href="/" className="items-center text-center mt-48 border-shadow border-l-red border-red-600 border-r-[2px] p-0 font-bold " >
+        <button href="/" className="items-center text-center mt-48 border-shadow border-l-red border-red-600 border-r-[2px] p-0 font-bold  " >
           <ListItemPrefix>
-            <PowerIcon className="h-5 w-5  ml-2 " />
+            <PowerIcon className="h-5 w-5 text-center ml-32 items-center " />
           </ListItemPrefix>
           Log Out
         </button>
