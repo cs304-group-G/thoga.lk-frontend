@@ -15,15 +15,18 @@ const Productpage = () => {
     </div>
     <div class="p-4">
         <h3 class="text-lg font-medium mb-2">Carrot</h3>
+        <h3 class="text-lg font-medium text-gray-600 mb-2">District - Galle</h3>
         <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ante
             vel eros fermentum faucibus sit amet euismod lorem.</p>
         <div class="flex items-center justify-between">
         <span className = 'space-x-1'>
-        <span class="font-bold text-md gap-2 border-[2px] p-2 rounded-md bg-gray-300 font-bold border-red-500 ">1 Kg</span>
+        <span class="text-md gap-2 border-[2px] p-2 rounded-md bg-gray-300 font-semibold border-red-500 ">1 Kg</span>
             <span class="font-bold text-lg">Rs 120.00</span>
             </span>
             
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            <button class="bg-cyan-500 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded">
+        Add to cart
+      </button><button class="bg-red-500 hover:bg-gray-500   text-white font-bold py-2 px-4 rounded">
         Buy Now
       </button>
         </div>
