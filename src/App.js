@@ -10,6 +10,7 @@ import Loginpage from "./pages/auth/Loginpage";
 import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
+import Product from './pages/Products/Product';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,8 @@ const router = createBrowserRouter(
       <Route path="/register" element={<Registerpage />} />
       <Route index element={<Homepage />} />
       <Route path="/product" element={<Productpage />} />
+      <Route path="/product-home" element={<Product />} />
+
     </>
   )
 );
