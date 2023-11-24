@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+import React from "react";
 import CommentsContainer from "../components/comments/CommentsContainer";
-import Product from "./Products/Product";
+import DashBoard from "./Products/components/dashBoard";
 import SingleProduct from "./Products/singleProduct";
-import AddProductButton from "./Products/components/addProductButton";
-import UpdateProductButton from "./Products/components/updateProductButton";
 
 const Productpage = () => {
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleButtonClick = (button) => {
-    setActiveButton(button);
-  };
-
   return (
     <>
-      <Navbar />
-      
-      
-
-      <div className="flex flex-row gap-2">
-        <Product />
+    <h1>HEADER</h1>
+      <div className="flex flex-row gap-2 ">
+        <DashBoard/>
+        {/* Map Items with the database and ad it as the single products */}
         <SingleProduct />
       </div>
       <CommentsContainer className="mt-10" logginedUserId="a" />
