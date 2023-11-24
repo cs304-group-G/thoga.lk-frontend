@@ -13,7 +13,7 @@ const updateProduct = ({ product, onUpdate }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-8 bg-gray-100 rounded-md">
+    <div className="max-w-md mx-auto mt-8 p-8 bg-green-600 rounded-md">
       <h2 className="text-2xl font-semibold mb-4">Update Product</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
