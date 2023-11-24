@@ -1,45 +1,49 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import CommentsContainer from "../components/comments/CommentsContainer";
+import Product from "./Products/Product";
+import SingleProduct from "./Products/singleProduct";
+import AddProduct from "./Products/Product CRUD/addProduct";
 
 const Productpage = () => {
-  
   return (
     <>
-      <Navbar />
-      <div class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg mt-2  mb-3">
-    <div class="relative">
-        <img class="w-full" src="https://images.unsplash.com/photo-1603117869492-9f217038e19a?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product Image"/>
-        <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">SALE
-        </div>
-    </div>
-    <div class="p-4 ">
-        <span class="text-2xl  font-bold text-center justify-center items-center text-red-800 mb-2">Carrot</span>
-        <span className ='flex flex-row space-x-3' ><h3 class="text-lg font-medium text-gray-600 mb-2">District -</h3>
-        <h3 class="text-lg font-medium text-green-600 mb-2">Galle</h3> </span> 
-        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ante
-            vel eros fermentum faucibus sit amet euismod lorem.</p>
-        <div class="flex items-center justify-between">
-        <span className = 'space-x-1'>
-        <span class="text-md gap-2 border-[2px] p-3 rounded-md bg-gray-300 font-semibold border-red-500 ">1 Kg</span>
-            <span class="font-bold text-lg border-gray-400 border-[1px] shadow-lg bg-gray-300 rounded-lg p-3">Rs 120.00</span>
-            </span>
-            
-            <button class="bg-cyan-500 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded">
-        Add to cart
-      </button><button class="bg-red-500 hover:bg-gray-500   text-white font-bold py-2 px-4 rounded">
-        Buy Now
+      <Navbar/>
+
+      <button
+        class="rounded-lg  relative w-36 h-10 cursor-pointer flex items-center border border-green-500 bg-green-500 group hover:bg-green-500 active:bg-green-500 active:border-green-500"
+        href="{{route('process.create')}}"
+      >
+        <span class="text-gray-200 font-semibold ml-8 transform group-hover:translate-x-20 transition-all duration-300">
+          Add Product
+        </span>
+        <span class="absolute right-0 h-full w-10 rounded-lg bg-green-500 flex items-center justify-center transform group-hover:translate-x-0 group-hover:w-full transition-all duration-300">
+          <svg
+            class="svg w-8 text-white"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="12" x2="12" y1="5" y2="19"></line>
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+          </svg>
+        </span>
       </button>
-        </div>
-    </div>
-</div>
-      
-      
-      <CommentsContainer className="mt-10" logginedUserId="a"/>
+
+      <AddProduct />
+      <div className="flex flex-row gap-2">
+        <Product />
+        <SingleProduct />
+      </div>
+      <CommentsContainer className="mt-10" logginedUserId="a" />
     </>
   );
 };
 
 export default Productpage;
-
-
