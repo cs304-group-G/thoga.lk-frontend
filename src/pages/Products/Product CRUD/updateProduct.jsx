@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const updateProduct = ({ product, onUpdate }) => {
+const UpdateProduct = ({ product, onUpdate }) => {
   const [updatedProduct, setUpdatedProduct] = useState({ ...product });
 
   const handleChange = (e) => {
@@ -13,8 +13,8 @@ const updateProduct = ({ product, onUpdate }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-8 bg-green-600 rounded-md">
-      <h2 className="text-2xl font-semibold mb-4">Update Product</h2>
+    <div className="max-w-md mx-auto mt-8 p-8 bg-gray-200 rounded-md">
+      <h2 className="text-4xl flex text-center items-center justify-center underline font-bold mb-4">Update Product</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
         <input
@@ -55,12 +55,18 @@ const updateProduct = ({ product, onUpdate }) => {
         />
       </div>
       <div className="flex justify-end">
-        <button onClick={handleUpdate} className="bg-red-500 text-white px-4 py-2 rounded-md">
-          Update Product
+      <button class="cursor-pointer relative group overflow-hidden border-2 px-8 py-2 border-green-500">
+          <span class="font-bold text-white text-xl relative z-10 group-hover:text-black duration-500">
+            Update Product
+          </span>
+          <span class="absolute top-0 left-0 w-full bg-green-500 duration-500 group-hover:-translate-x-full h-full"></span>
+          <span class="absolute top-0 left-0 w-full bg-green-500 duration-500 group-hover:translate-x-full h-full"></span>
+          <span class="absolute top-0 left-0 w-full bg-green-500 duration-500 delay-300 group-hover:-translate-y-full h-full"></span>
+          <span class="absolute delay-300 top-0 left-0 w-full bg-green-500 duration-500 group-hover:translate-y-full h-full"></span>
         </button>
       </div>
     </div>
   );
 };
 
-export default updateProduct;
+export default UpdateProduct;
