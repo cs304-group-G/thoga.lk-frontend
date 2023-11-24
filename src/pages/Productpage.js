@@ -7,12 +7,16 @@ import AddProductButton from "./Products/components/addProductButton";
 import UpdateProductButton from "./Products/components/updateProductButton";
 
 const Productpage = () => {
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleButtonClick = (button) => {
+    setActiveButton(button);
+  };
+
   return (
     <>
-      <Navbar/>
+      <Navbar />
       
-      <AddProductButton/>
-      <UpdateProductButton/>
       
 
       <div className="flex flex-row gap-2">
