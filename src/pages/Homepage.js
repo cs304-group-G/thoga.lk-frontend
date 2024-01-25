@@ -5,23 +5,47 @@ import Carauselvegi from "../components/Carauselvegi";
 import CarouselFruits from "../components/CarouselFruits";
 import CarouselFish from "../components/CarouselFish";
 import Footer from "../components/Footer";
+import FNavbar from "../components/FNavbar";
 
 const Homepage = () => {
   return (
     <>
-      <Navbar />
-      
+      <FNavbar />
+      {/* <Navbar /> */}
+
       <Carousel />
-      
-      <div className="bg-[#e5eef1] pt-[4rem] pb-[10rem]">
-      <h1 className=" pb-[2rem] text-4xl font-semibold pl-10">Vegitables</h1>
+
+      <div className="bg-[#e5eef1] pt-[4rem] pb-[10rem] ">
+        <div className="grid grid-cols-1 sm:grid-cols-10">
+          <div></div>
+          <div className="col-span-8">
+            <h1 className=" pb-[2rem] text-4xl font-semibold ">Vegitables</h1>
+          </div>
+        </div>
         <Carauselvegi />
-        <h1 className=" pb-[2rem] text-4xl font-semibold pl-10 pt-10">Fruits</h1>
-        <CarouselFruits/>
-        <h1 className=" pb-[2rem] text-4xl font-semibold pl-10 pt-10">Fish</h1>
-        <CarouselFish/>
+
+        <div className="grid grid-cols-1 sm:grid-cols-10">
+          <div></div>
+          <div className="col-span-8">
+            <h1 className=" pb-[2rem] text-4xl font-semibold pl-10 pt-10">
+              Fruits
+            </h1>
+          </div>
+        </div>
+        <CarouselFruits />
+
+        <div className="grid grid-cols-1 sm:grid-cols-10">
+          <div></div>
+          <div className="col-span-8">
+            <h1 className=" pb-[2rem] text-4xl font-semibold pl-10 pt-10">
+              Fish
+            </h1>
+          </div>
+        </div>
+        <CarouselFish />
       </div>
-      <Footer/>
+
+      <Footer />
 
       {/* <div className="grid grid-col-2 ">
         <div >
@@ -43,11 +67,6 @@ const Homepage = () => {
 
       </div> 
      */}
-
-     
-
-
-     
     </>
   );
 };

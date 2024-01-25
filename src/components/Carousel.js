@@ -8,7 +8,7 @@ export default function HeroSection() {
     
     <Carousel
     autoPlay={true}
-    interval={1000}
+    interval={3000}
     showThumbs={false}
     infiniteLoop={true}
     
