@@ -1,38 +1,41 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import CommentsContainer from "../components/comments/CommentsContainer";
+import DashBoard from "./Products/components/dashBoard";
+import SingleProduct from "./Products/singleProduct";
+import SampleAllProducts from "./Products/sample/sampleAllProducts";
 
 const Productpage = () => {
-  
   return (
     <>
-      <Navbar />
-      <div className="grid grid-cols-2 container ">
-        <div className="flex justify-center">
-          <img
-            className="w-[60%] pt-[2.5rem] "
-            src="https://plus.unsplash.com/premium_photo-1678344170545-c3edef92a16e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-            alt=""
-          />
+      <h1>HEADER</h1>
+      <div className="flex  gap-2 ">
+        <DashBoard />
+        <div className="flex  justify-between">
+          <div className="flex flex-col">
+            <div className="text-2xl flex-row font-mono  ">
+              Buy and sell everything from the fresh farms. Find a great deal
+              near you,
+              <h1 className="text-3xl font-bold text-green-500 font-sans">
+                Near your district,city...anywhere in{" "}
+              </h1>
+              or search all over
+              <h1 className="text-5xl text-orange-600 font-bold font-serif">
+                Sri Lanka
+              </h1>
+              <h1 className="text-4xl uppercase font-bold text-center text-red-600">THOGA.LK</h1>
+              
+            </div>
+
+            <div className="flex auto-cols-auto gap-2">
+              <SampleAllProducts/>
+            </div>
+          </div>
         </div>
-        <div className="pt-[2.5rem] flex flex-col ">
-          <h2>Vegitable</h2>
-          <p>destription</p>
-          <span>Rs .500.00 per 1kg </span>
-          <h3>Gampaha</h3>
-          <p>chat</p>
-          <p>contact seller</p>
-          <p>see other item seller</p>
-        </div>
-        <div></div>
+        {/* Map Items with the database and ad it as the single products */}
       </div>
-      
-      
-      <CommentsContainer className="mt-10" logginedUserId="a"/>
+      <CommentsContainer className="mt-10" logginedUserId="a" />
     </>
   );
 };
 
 export default Productpage;
-
-
