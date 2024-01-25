@@ -1,12 +1,64 @@
-import React from "react";
-import Navbar from "../../components/Navbar";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useState } from "react";
+
+import BASE_URL from "../../config/apiConfig";
 
 const Loginpage = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  const login = async (e) => {
+
+    e.preventDefault();
+
+    const config = {
+      method: "post",
+      url: `${BASE_URL}auth/authenticate`,
+      data: {
+        email: email,
+        password: password,
+      },
+    };
+
+    await axios(config)
+      .then((res) => {
+        if (res.data.role == "pending") {
+          if (res.data.token) {
+            localStorage.setItem(
+              "pendingUserToken",
+              JSON.stringify(res.data.token)
+            );
+            localStorage.setItem("userRole", JSON.stringify(res.data.role));
+            window.location.href = "/";
+          } else {
+            setMessage(res.data.message);
+          }
+        } else {
+          if (res.data.token) {
+            Cookies.set("autoCreditCookie", res.data.token, {
+              path: "/",
+              maxAge: 60 * 60 * 24,
+            });
+            localStorage.setItem("userRole", JSON.stringify(res.data.role));
+            window.location.href = "/";
+          } else {
+            setMessage(res.data.message);
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("login failed, try again");
+        window.location.reload();
+      });
+  };
+
   return (
-    
-    <div className="">
-      <Navbar/>
-      <div className="p-5 px-[5rem] grid grid-cols-2 bg-primary-red text-white">
+    <>
+      <div className="p-5 grid grid-cols-2 bg-primary-red text-white">
         <div className="p-5 w-full text-center justify-center">
           <p className="text-2xl">
             Thoga.lk My Account <br /> WELCOME,
@@ -16,137 +68,87 @@ const Loginpage = () => {
           <p className="text-2xl">Checkout Thoga.lk Socials</p>
         </div>
       </div>
-      <div className="container px-[20rem] pt-[5rem]">
-        <div className="grid grid-cols-2 gap-[5rem]">
-          <div className="w-full">
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                First name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+      <div className="flex justify-center pt-10">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="space-y-6">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Email address
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setemail(e.target.value);
+                    }}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Password
+                  </label>
+                  <div className="text-sm">
+                    <a
+                      href="#"
+                      className="font-semibold text-indigo-600 hover:text-indigo-500"
+                    >
+                      Forgot password?
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <button
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={(e) => {
+                    login(e);
+                  }}
+                >
+                  Sign in
+                </button>
               </div>
             </div>
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+
+            <p className="mt-10 text-center text-sm text-gray-500">
+              Not a member?{" "}
+              <a
+                href="/register"
+                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
               >
-                Last name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Phone No
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="w-full">
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Account Type
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Password
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-3 py-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Confirm Password
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-3 pt-5">
-              <button className="py-2 w-full border-2 border-solid rounded-xl">Register</button>
-            </div>
+                Register Here
+              </a>
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
