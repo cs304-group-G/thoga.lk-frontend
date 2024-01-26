@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Card,
   Typography,
@@ -6,46 +7,89 @@ import {
   ListItemPrefix,
   ListItemSuffix,
   Chip,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
 } from "@material-tailwind/react";
+
 import {
+  PresentationChartBarIcon,
   ShoppingBagIcon,
   UserCircleIcon,
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
-  HomeIcon,
 } from "@heroicons/react/24/solid";
- 
-import React from 'react'
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
-export default function dashBoard() {
+export default function SidebarWithContentSeparator() {
+  const [open, setOpen] = React.useState(0);
+
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
   return (
-    <Card className="h-[calc(100vh)] w-full max-w-[20rem] rounded-none p-4 shadow-xl shadow-blue-gray-500 bg-gray-800" >
+    <Card className="h-[calc(100vh-2rem)] rounded-none w-full max-w-[20rem] p-4 shadow-xl font-bold text-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray" className="itesm-center justify-center text-white text-center">
+        <Typography variant="h5" color="blue-gray" className="items-center text-center ">
           Dashboard
         </Typography>
       </div>
-      <List className="text-white">
-        <ListItem >
-          <ListItemPrefix>
-            <HomeIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <a href="/" className = 'space-x-2'>Home</a>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Items
-        </ListItem>
+      <List>
+        <Accordion
+          open={open === 1}
+          icon={
+            <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+            />
+          }
+        >
+          <ListItem className="p-0" selected={open === 1}>
+            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
+              <ListItemPrefix>
+                <PresentationChartBarIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-normal">
+                All Products
+              </Typography>
+            </AccordionHeader>
+          </ListItem>
+          <AccordionBody className="py-1   ">
+            <List className="p-0">
+              <ListItem className="hover:bg-green-400 hover:text-white  font-bold">
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                <Link to="/vegetables">Vegetables</Link>
+                
+              </ListItem>
+              <ListItem className="hover:bg-red-400 hover:text-white  font-bold">
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                <Link to="/fruits">Fruits</Link>
+              </ListItem>
+              <ListItem className="hover:bg-blue-400 hover:text-white  font-bold">
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                <Link to="/items">Items</Link>
+              </ListItem>
+            </List>
+          </AccordionBody>
+        </Accordion>
+        
+        <hr className="my-2 border-blue-gray-50" />
         <ListItem>
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
           </ListItemPrefix>
           Inbox
           <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full ml-40 bg-gray-400 p-2" />
+            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
           </ListItemSuffix>
         </ListItem>
         <ListItem>
@@ -60,13 +104,13 @@ export default function dashBoard() {
           </ListItemPrefix>
           Settings
         </ListItem>
-        <a href="/signin" className="items-center text-center mt-48 border-shadow border-l-red border-red-600 border-r-[2px] p-0 font-bold  " >
+        <ListItem className="text-red-700 font-bold  justify-center ">
           <ListItemPrefix>
-            <PowerIcon className="h-5 w-5 text-center ml-32 items-center " />
+            <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
           Log Out
-        </a>
+        </ListItem>
       </List>
     </Card>
-  )
+  );
 }

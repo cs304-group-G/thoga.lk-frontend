@@ -10,6 +10,10 @@ import Loginpage from "./pages/auth/Loginpage";
 import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
+import Vegetables from "./pages/Products/sample/Vegetables";
+import Fruits from "./pages/Products/sample/Fruits";
+import Items from "./pages/Products/sample/Items";
+import AddProduct from "./pages/Products/Product_CRUD/addProduct";
 
 
 const router = createBrowserRouter(
@@ -19,6 +23,11 @@ const router = createBrowserRouter(
       <Route path="/register" element={<Registerpage />} />
       <Route index element={<Homepage />} />
       <Route path="/product" element={<Productpage />} />
+      <Route path="/vegetables" element={<Vegetables />} />
+      <Route path="/fruits" element={<Fruits />} />
+      <Route path="/items" element={<Items/>} />
+      <Route path="/addProduct" element={<AddProduct/>} />
+   
   
   
 

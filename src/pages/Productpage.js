@@ -2,14 +2,15 @@ import React from "react";
 import CommentsContainer from "../components/comments/CommentsContainer";
 import DashBoard from "./Products/components/dashBoard";
 import SingleProduct from "./Products/singleProduct";
-import SampleAllProducts from "./Products/sample/sampleAllProducts";
+import Vegetables from "./Products/sample/Vegetables";
+import ViewProduct from "./Products/sample/viewProduct";
 
 const Productpage = () => {
   return (
     <>
       <h1>HEADER</h1>
-      <div className="flex  gap-2 ">
-        <DashBoard />
+      <div className="flex bg-agri1 bg-cover gap-2 ">
+        <DashBoard  />
         <div className="flex  justify-between">
           <div className="flex flex-col">
             <div className="text-2xl flex-row font-mono  ">
@@ -22,18 +23,18 @@ const Productpage = () => {
               <h1 className="text-5xl text-orange-600 font-bold font-serif">
                 Sri Lanka
               </h1>
-              <h1 className="text-4xl uppercase font-bold text-center text-red-600">THOGA.LK</h1>
               
             </div>
-
-            <div className="flex auto-cols-auto gap-2">
-              <SampleAllProducts/>
+            <div className="">
+              <ViewProduct/>
+              
             </div>
+            
           </div>
         </div>
         {/* Map Items with the database and ad it as the single products */}
       </div>
-      <CommentsContainer className="mt-10" logginedUserId="a" />
+      
     </>
   );
 };

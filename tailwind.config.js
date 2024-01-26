@@ -3,10 +3,14 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        "primary-red": "#ff0000",
+      backgroundImage: {
+        'agri1': "url('/src/assets/1.jpg')",
       },
     },
   },
-  plugins: [],
+  
+  plugins: [
+    // ...
+    require('flowbite/plugin'),require('tailwindcss-font-inter'),
+  ],
 };
