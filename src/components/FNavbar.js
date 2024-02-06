@@ -160,39 +160,36 @@ export default function FNavbar() {
                         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <div className="py-1">
                             <form method="POST" action="#">
-                            <Menu.Item>
-                              {({ active }) => (
-                                <a
-                                  href="#"
-                                  className={classNames(
-                                    active
-                                      ? "bg-gray-100 text-gray-900"
-                                      : "text-gray-700",
-                                    "block px-4 py-2 text-sm"
-                                  )}
-                                >
-                                  Sinhala
-                                </a>
-                              )}
-                            </Menu.Item>
-                            <Menu.Item>
-                              {({ active }) => (
-                                <a
-                                  href="#"
-                                  className={classNames(
-                                    active
-                                      ? "bg-gray-100 text-gray-900"
-                                      : "text-gray-700",
-                                    "block px-4 py-2 text-sm"
-                                  )}
-                                >
-                                  English
-                                </a>
-                              )}
-                            </Menu.Item>
-                            
-                            
-                              
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <a
+                                    href="#"
+                                    className={classNames(
+                                      active
+                                        ? "bg-gray-100 text-gray-900"
+                                        : "text-gray-700",
+                                      "block px-4 py-2 text-sm"
+                                    )}
+                                  >
+                                    Sinhala
+                                  </a>
+                                )}
+                              </Menu.Item>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <a
+                                    href="#"
+                                    className={classNames(
+                                      active
+                                        ? "bg-gray-100 text-gray-900"
+                                        : "text-gray-700",
+                                      "block px-4 py-2 text-sm"
+                                    )}
+                                  >
+                                    English
+                                  </a>
+                                )}
+                              </Menu.Item>
                             </form>
                           </div>
                         </Menu.Items>
@@ -205,11 +202,8 @@ export default function FNavbar() {
                       <div>
                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
                           About Us
-                          
                         </Menu.Button>
                       </div>
-
-                      
                     </Menu>
                     {/* About us */}
 
@@ -218,15 +212,10 @@ export default function FNavbar() {
                       <div>
                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
                           Log in
-                          
                         </Menu.Button>
                       </div>
-
-                      
                     </Menu>
                     {/*Log in */}
-
-                    
 
                     {/* {navigation.map((item) => (
                       <a

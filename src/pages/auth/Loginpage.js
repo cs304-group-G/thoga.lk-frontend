@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import FNavbar from "../../components/FNavbar";
 
 const Loginpage = () => {
   return (
     
     <div className="">
-      <Navbar/>
+      <FNavbar/>
       <div className="p-5 px-[5rem] grid grid-cols-2 bg-primary-red text-white">
         <div className="p-5 w-full text-center justify-center">
           <p className="text-2xl">
