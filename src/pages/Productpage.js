@@ -25,10 +25,10 @@ const Productpage = () => {
               </h1>
               
             </div>
-            <div className="">
+            
               <ViewProduct/>
               
-            </div>
+            
             
           </div>
         </div>

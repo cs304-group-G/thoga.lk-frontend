@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import AddProduct from "../Product_CRUD/addProduct";
 
 export default function Vegetables() {
+  const [showAddProduct, setShowAddProduct] = useState(false);
+
+  const handleAddProductClick = () => {
+    setShowAddProduct(true);
+
+    // Smooth scroll to the AddProduct component
+    window.scrollTo({
+      top: document.getElementById("addProductSection").offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const handleCloseAddProduct = () => {
+    setShowAddProduct(false);
+  };
+
   return (
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
-      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div className="bg-white py-6 sm:py-8 lg:py-12">
+      <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div id="addProductSection">
+          {showAddProduct && <AddProduct onClose={handleCloseAddProduct} />}
+        </div>
+
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h2 className="text-2xl font-bold text-gray-800 align-center lg:text-3xl">Vegetables</h2>
+
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleAddProductClick}
+          >
+            + Add Product
+          </button>
+        </div>
+
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div class="mb-6 flex items-end justify-between gap-4">
           <h2 class="text-2xl  font-bold text-gray-800 align-center lg:text-3xl">Vegetables</h2>
 
@@ -182,6 +215,7 @@ export default function Vegetables() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

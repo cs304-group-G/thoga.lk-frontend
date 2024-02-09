@@ -14,6 +14,8 @@ import Vegetables from "./pages/Products/sample/Vegetables";
 import Fruits from "./pages/Products/sample/Fruits";
 import Items from "./pages/Products/sample/Items";
 import AddProduct from "./pages/Products/Product_CRUD/addProduct";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import Admin from "./pages/Admin/Admin";
 
 
 const router = createBrowserRouter(
@@ -27,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="/fruits" element={<Fruits />} />
       <Route path="/items" element={<Items/>} />
       <Route path="/addProduct" element={<AddProduct/>} />
+      <Route path="/admin" element={<Admin/>} />
    
   
   
