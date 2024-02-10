@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 
 import BASE_URL from "../../config/apiConfig.js";
+import { Link } from "react-router-dom";
 
 const Loginpage = () => {
   const [email, setemail] = useState("");
@@ -11,11 +12,10 @@ const Loginpage = () => {
   const [message, setMessage] = useState(null);
 
   const login = async (e) => {
-
     e.preventDefault();
 
     const config = {
-      method: "post",
+      method: "POST",
       url: `${BASE_URL}auth/authenticate`,
       data: {
         email: email,
@@ -26,28 +26,15 @@ const Loginpage = () => {
     await axios(config)
       .then((res) => {
         console.log(res.data);
-        if (res.data.role == "pending") {
-          if (res.data.token) {
-            localStorage.setItem(
-              "pendingUserToken",
-              JSON.stringify(res.data.token)
-            );
-            localStorage.setItem("userRole", JSON.stringify(res.data.role));
-            window.location.href = "/";
-          } else {
-            setMessage(res.data.message);
-          }
+        if (res.data.token && res.data.role) {
+          Cookies.set("au_thogalk", res.data, {
+            path: "/",
+            maxAge: 60 * 60 * 24,
+          });
+          window.location.href = "/";
         } else {
-          if (res.data.token) {
-            Cookies.set("autoCreditCookie", res.data.token, {
-              path: "/",
-              maxAge: 60 * 60 * 24,
-            });
-            localStorage.setItem("userRole", JSON.stringify(res.data.role));
-            window.location.href = "/";
-          } else {
-            setMessage(res.data.message);
-          }
+          alert("error occured plese try again");
+          window.reload();
         }
       })
       .catch((err) => {
@@ -138,13 +125,7 @@ const Loginpage = () => {
             </div>
 
             <p className="mt-10 text-center text-sm text-gray-500">
-              Not a member?{" "}
-              <a
-                href="/register"
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-              >
-                Register Here
-              </a>
+              Not a member? <Link to={"/auth/register"}>Register here</Link>
             </p>
           </div>
         </div>

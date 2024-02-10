@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 
 import BASE_URL from "../../config/apiConfig.js";
+import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   const [email, setemail] = useState("");
@@ -167,13 +168,7 @@ const ForgetPassword = () => {
             </div>
 
             <p className="mt-10 text-center text-sm text-gray-500">
-              Not a member?{" "}
-              <a
-                href="/register"
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-              >
-                Register Here
-              </a>
+              Not a member? <Link to={"/auth/register"}>Register here</Link>
             </p>
           </div>
         </div>
