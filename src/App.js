@@ -5,41 +5,40 @@ import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
 import Profile from "./pages/Profile";
+import ForgetPassword from "./pages/auth/ForgetPassword";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage />,
   },
-
   {
-    path: "/Loginpage",
+    path: "/auth/login",
     element: <Loginpage />,
   },
-
   {
-    path: "/Registerpage",
+    path: "/auth/register",
     element: <Registerpage />,
   },
-
   {
-    path: "/Productpage",
+    path: "/auth/forget-password",
+    element: <ForgetPassword />,
+  },
+  {
+    path: "/products",
     element: <Productpage />,
   },
-
   {
-    path: "/Profile",
+    path: "/user/Profile",
     element: <Profile />,
   },
 ]);
 function App() {
   return (
     <>
-      <RouterProvider router={router}/>
-  
+      <RouterProvider router={router} />
     </>
   );
-
 }
 
 // const router = createBrowserRouter(
@@ -53,7 +52,4 @@ function App() {
 //   )
 // );
 
-
-
 export default App;
-

@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { useState } from "react";
 
-import BASE_URL from "../../config/apiConfig";
+import BASE_URL from "../../config/apiConfig.js";
 
 const Loginpage = () => {
   const [email, setemail] = useState("");
@@ -25,6 +25,7 @@ const Loginpage = () => {
 
     await axios(config)
       .then((res) => {
+        console.log(res.data);
         if (res.data.role == "pending") {
           if (res.data.token) {
             localStorage.setItem(
@@ -126,7 +127,7 @@ const Loginpage = () => {
 
               <div>
                 <button
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-purple px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={(e) => {
                     login(e);
                   }}
