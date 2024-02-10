@@ -1,136 +1,126 @@
-// AddProduct.js
-import React, { useState } from "react";
-import Axios from "axios-fetch";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddProduct = () => {
-  const [productData, setProductData] = useState({
-    title: "",
-    description: "",
-    price: 0,
-    city: "",
-    photos: [],
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    price: '',
+    city: '',
+    photoUrls: '',
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProductData({ ...productData, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    const files = e.target.files;
-    setProductData({ ...productData, photos: files });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("title", productData.title);
-    formData.append("description", productData.description);
-    formData.append("price", productData.price);
-    formData.append("city", productData.city);
-    productData.photos.forEach((photo) => {
-      formData.append("photos", photo);
-    });
-
     try {
-      const response = await Axios.post("/api/addProduct", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+      
+      await axios.post('/api/v1/product', formData);
+
+      // Clear the form after successful submission
+      setFormData({
+        title: '',
+        description: '',
+        price: '',
+        city: '',
+        photoUrls: '',
       });
-      console.log(response.data);
-      // Redirect or show success message
     } catch (error) {
-      console.error("Error adding product:", error.response.data.error);
-      // Handle error, show error message, etc.
+      console.error('Error adding vegetable:', error);
     }
   };
 
   return (
-    <div className="container mx-auto mt-8">
-      <form onSubmit={handleSubmit}>
+    <div className="container mx-auto mt-2">
+      
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto border-[5px] border-green-400  p-6">
+      <div className='  font-bold text-2xl   text-center '>
+        <h1>Add Vegetable</h1>
+      </div>
         <div className="mb-4">
-          <label htmlFor="title" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
             Title
           </label>
           <input
             type="text"
             id="title"
             name="title"
-            value={productData.title}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border rounded-md w-full"
+            value={formData.title}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded w-full"
             required
           />
         </div>
-
         <div className="mb-4">
-          <label htmlFor="description" className="block text-sm font-medium text-gray-600">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
             Description
           </label>
-          <textarea
+          <input
+            type="text"
             id="description"
             name="description"
-            value={productData.description}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border rounded-md w-full"
-            rows="4"
+            value={formData.description}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded w-full"
             required
           />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-600">
+        </div><div className="mb-4">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
             Price
-          </label>
+                      </label>
           <input
             type="number"
             id="price"
             name="price"
-            value={productData.price}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border rounded-md w-full"
+            value={formData.price}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded w-full"
             required
           />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="city" className="block text-sm font-medium text-gray-600">
+        </div><div className="mb-4">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
             City
           </label>
           <input
             type="text"
             id="city"
             name="city"
-            value={productData.city}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border rounded-md w-full"
+            value={formData.city}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded w-full"
             required
           />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="photos" className="block text-sm font-medium text-gray-600">
-            Photos
+        </div><div className="mb-4">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+            Photo urls
           </label>
           <input
-            type="file"
-            id="photos"
-            name="photos"
-            onChange={handleFileChange}
-            className="mt-1 p-2 border rounded-md w-full"
-            multiple
+            type="array"
+            id="photoUrls"
+            name="photoUrls"
+            value={formData.photoUrls}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded w-full"
             required
           />
         </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-        >
-          Add Product
-        </button>
+        
+        <div className="mb-4 items-center text-center">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Add Vegetable
+          </button>
+        </div>
       </form>
     </div>
   );

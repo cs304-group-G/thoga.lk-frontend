@@ -10,7 +10,7 @@ module.exports = {
   },
   
   plugins: [
-    // ...
-    require('flowbite/plugin'),require('tailwindcss-font-inter'),
+    
+    require('flowbite/plugin'),require('tailwindcss-font-inter'),require('@tailwindcss/forms'),
   ],
 };
