@@ -1,189 +1,379 @@
-import React from "react";
-import { Breadcrumb } from 'flowbite-react';
-import { HiHome } from 'react-icons/hi';
+import React, { useState } from "react";
+
 
 export default function Vegetables() {
-  return (
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
-      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-        
-        
 
-        <div class="mb-6 flex items-end justify-between gap-4">
-          <h2 class="text-2xl font-bold text-gray-800 align-center lg:text-3xl">Vegetables</h2>
+  return (
+    <>
+    <section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <header>
+      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">VEGETABLES</h2>
+
+      <p class="mt-4 max-w-md text-gray-500">
+        Search your desired item through the VEGETABLES category
+      </p>
+    </header>
+
+    <div class="mt-8 block lg:hidden">
+      <button
+        class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+      >
+        <span class="text-sm font-medium"> Filters & Sorting </span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4 rtl:rotate-180"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8">
+      <div class="hidden space-y-4 lg:block">
+        <div>
+          <label for="SortBy" class="block text-xs font-medium text-gray-700"> Sort By </label>
+
+          <select id="SortBy" class="mt-1 rounded border-gray-300 text-sm">
+            <option>Sort By</option>
+            <option value="Title, DESC">Title, DESC</option>
+            <option value="Title, ASC">Title, ASC</option>
+            <option value="Price, DESC">Price, DESC</option>
+            <option value="Price, ASC">Price, ASC</option>
+            <option value="Price, ASC">District, ASC</option>
+            <option value="Price, ASC">District, DESC</option>
+          </select>
         </div>
 
-        <div class="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
-          {/* First product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
+        <div>
+          <p class="block text-xs font-medium text-gray-700">Filters</p>
+
+          <div class="mt-1 space-y-2">
+            <details
+              class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1590165482129-1b8b27698780?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dmVnZXRhYmxlfGVufDB8MXwwfHx8MA%3D%3D"
-                loading="lazy"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
+              <summary
+                class="flex cursor-pointer items-center justify-between gap-2 p-4 text-gray-900 transition"
               >
-                Potato
-              </a>
+                <span class="text-sm font-medium"> Availability </span>
 
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">1Kg - Rs 15.00</span>
+                <span class="transition group-open:-rotate-180">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-4 w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="border-t border-gray-200 bg-white">
+                <header class="flex items-center justify-between p-4">
+                  <span class="text-sm text-gray-700"> 0 Selected </span>
+
+                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                    Reset
+                  </button>
+                </header>
+
+                <ul class="space-y-1 border-t border-gray-200 p-4">
+                  <li>
+                    <label for="FilterInStock" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterInStock"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterPreOrder" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterPreOrder"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterOutOfStock"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
+                    </label>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </div>
+            </details>
 
-          {/* Second product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
+            <details
+              class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1553395572-0ef353a212bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZlZ2V0YWJsZXxlbnwwfDF8MHx8fDA%3D"
-                loading="lazy"
-                alt="Photo by Galina N"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
+              <summary
+                class="flex cursor-pointer items-center justify-between gap-2 p-4 text-gray-900 transition"
               >
-                Tomato
-              </a>
+                <span class="text-sm font-medium"> Price </span>
 
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">1 Kg - Rs 200.00</span>
+                <span class="transition group-open:-rotate-180">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-4 w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="border-t border-gray-200 bg-white">
+                <header class="flex items-center justify-between p-4">
+                  
+
+                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                    Reset
+                  </button>
+                </header>
+
+                <div class="border-t border-gray-200 p-4">
+                  <div class="flex justify-between gap-4">
+                    <label for="FilterPriceFrom" class="flex items-center gap-2">
+                      <span class="text-sm text-gray-600">Rs</span>
+
+                      <input
+                        type="number"
+                        id="FilterPriceFrom"
+                        placeholder="From"
+                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      />
+                    </label>
+
+                    <label for="FilterPriceTo" class="flex items-center gap-2">
+                      <span class="text-sm text-gray-600">Rs</span>
+
+                      <input
+                        type="number"
+                        id="FilterPriceTo"
+                        placeholder="To"
+                        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                      />
+                    </label>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </details>
 
-          {/* Third product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
+            <details
+              class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHZlZ2V0YWJsZXxlbnwwfDF8MHx8fDA%3D"
-                loading="lazy"
-                alt="Photo by eniko kis"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
+              <summary
+                class="flex cursor-pointer items-center justify-between gap-2 p-4 text-gray-900 transition"
               >
-                Carrot
-              </a>
+                <span class="text-sm font-medium"> District </span>
 
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">1 Kg - 450.00</span>
+                <span class="transition group-open:-rotate-180">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-4 w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="border-t border-gray-200 bg-white">
+                <header class="flex items-center justify-between p-4">
+                  <span class="text-sm text-gray-700"> 0 Selected </span>
+
+                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                    Reset
+                  </button>
+                </header>
+
+                <ul class="space-y-1 border-t border-gray-200 p-4">
+                  <li>
+                    <label for="FilterRed" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterRed"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Galle </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterBlue" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterBlue"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Nuwara Eliya </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterGreen" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterGreen"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Dambulla </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterOrange" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterOrange"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Kandy </span>
+                    </label>
+                  </li>
+
+                  <li>
+                    <label for="FilterPurple" class="inline-flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="FilterPurple"
+                        class="size-5 rounded border-gray-300"
+                      />
+
+                      <span class="text-sm font-medium text-gray-700"> Jaffna </span>
+                    </label>
+                  </li>
+
+              
+                </ul>
               </div>
-            </div>
-          </div>
-
-          {/* Fourth product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1570586437263-ab629fccc818?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZlZ2V0YWJsZXxlbnwwfDF8MHx8fDA%3D"
-                loading="lazy"
-                alt="Photo by Charles Deluvio"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
-              >
-                Pumpkin
-              </a>
-
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">1 Kg - Rs. 400.00</span>
-              </div> 
-            </div>
-          </div>
-
-          {/* Fifth product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1579609598065-79f8e5bcfb70?auto=format&q=75&fit=crop&w=600"
-                loading="lazy"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-              <span class="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">
-                sale
-              </span>
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
-              >
-                Sturdy Stand
-              </a>
-
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">$12.00</span>
-                <span class="mb-0.5 text-red-500 line-through">$24.00</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Sixth product */}
-          <div>
-            <a
-              href="#"
-              class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1619066045029-5c7e8537bd8c?auto=format&q=75&fit=crop&w=600"
-                loading="lazy"
-                class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-              />
-            </a>
-
-            <div>
-              <a
-                href="#"
-                class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg"
-              >
-                Lazy Bottle
-              </a>
-
-              <div class="flex items-end gap-2">
-                <span class="font-bold text-gray-800 lg:text-lg">$9.00</span>
-              </div>
-            </div>
+            </details>
           </div>
         </div>
       </div>
+
+      <div class="lg:col-span-3">
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
+            <a href="#" class="group block overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1506365069540-904bcc762636?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <h3
+                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
+                >
+                  Bell pepper
+                </h3>
+
+                <p class="mt-2">
+                  <span class="sr-only"> Regular Price </span>
+
+                  <span class="tracking-wider text-gray-900"> Rs 30.00   </span>
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="group block overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1561635741-c416a5193b6e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <h3
+                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
+                >
+                  Potato
+                </h3>
+
+                <p class="mt-2">
+                  <span class="sr-only"> Regular Price </span>
+
+                  <span class="tracking-wider text-gray-900"> Rs 250.00 </span>
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="group block overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1598030343246-eec71cb44231?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <h3
+                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
+                >
+                 Cabbage
+                </h3>
+
+                <p class="mt-2">
+                  <span class="sr-only"> Regular Price </span>
+
+                  <span class="tracking-wider text-gray-900"> Rs 400.00</span>
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+</section>
+   </>
   );
 }

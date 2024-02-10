@@ -1,11 +1,18 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import form from '@tailwindcss/forms'
+import { Link } from 'react-router-dom'
 
 export default function Profile() {
   return (
+    <>
     <form className='w-screen  flex flex-col justify-content-center  bg-agri1 text-white  items-center justify-center     '>
-      <button className='w-24 p-2 rounded-lg mt-2  items-left bg-white  text-black '>Home</button>
-      <div className="space-y-12 mt-4">
+    
+    <Link to='/' className='absolute top-2 left-2 p-3 w-24 rounded-lg text-center font-bold bg-transparent border border-white-[2px] hover:bg-slate-700 text-white'>
+        
+        Home
+      </Link>
+    
+      <div className="space-y-12 mt-6">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className=" text-center font-bold text-2xl leading-7 ">Profile</h2>
           <p className="mt-1 text-md leading-6 ">
@@ -19,15 +26,14 @@ export default function Profile() {
               </label>
               <div className="mt-2">
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                 
+
                   <input
                     type="text"
                     name="username"
                     id="username"
                     autoComplete="username"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1  placeholder:text-white focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="John Doe"
-                  />
+                    placeholder="John Doe" />
                 </div>
               </div>
             </div>
@@ -41,9 +47,8 @@ export default function Profile() {
                   id="about"
                   name="about"
                   rows={3}
-                  className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
-                />
+                  className="block w-full rounded-md border-0 py-1.5 text-black font-semibold shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  defaultValue={''} />
               </div>
               <p className="mt-3 text-sm leading-6 ">Write a few sentences about yourself.</p>
             </div>
@@ -102,8 +107,7 @@ export default function Profile() {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -117,8 +121,7 @@ export default function Profile() {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -132,8 +135,7 @@ export default function Profile() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -149,7 +151,7 @@ export default function Profile() {
                   className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option>Sri Lanka</option>
-                  
+
                 </select>
               </div>
             </div>
@@ -164,8 +166,7 @@ export default function Profile() {
                   name="street-address"
                   id="street-address"
                   autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -179,8 +180,7 @@ export default function Profile() {
                   name="city"
                   id="city"
                   autoComplete="address-level2"
-                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -194,8 +194,7 @@ export default function Profile() {
                   name="region"
                   id="region"
                   autoComplete="address-level1"
-                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
 
@@ -209,8 +208,7 @@ export default function Profile() {
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
-                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                  className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               </div>
             </div>
           </div>
@@ -232,8 +230,7 @@ export default function Profile() {
                       id="comments"
                       name="comments"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-white focus:ring-indigo-600"
-                    />
+                      className="h-4 w-4 rounded border-gray-300 text-white focus:ring-indigo-600" />
                   </div>
                   <div className="text-sm leading-6">
                     <label htmlFor="comments" className="font-medium text-white">
@@ -248,8 +245,7 @@ export default function Profile() {
                       id="candidates"
                       name="candidates"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-white focus:ring-indigo-600"
-                    />
+                      className="h-4 w-4 rounded border-gray-300 text-white focus:ring-indigo-600" />
                   </div>
                   <div className="text-sm leading-6">
                     <label htmlFor="candidates" className="font-medium text-white">
@@ -264,8 +260,7 @@ export default function Profile() {
                       id="offers"
                       name="offers"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-white6 focus:ring-indigo-600"
-                    />
+                      className="h-4 w-4 rounded border-gray-300 text-white6 focus:ring-indigo-600" />
                   </div>
                   <div className="text-sm leading-6">
                     <label htmlFor="offers" className="font-medium text-white">
@@ -285,8 +280,7 @@ export default function Profile() {
                     id="push-everything"
                     name="push-notifications"
                     type="radio"
-                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600"
-                  />
+                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600" />
                   <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-white">
                     Everything
                   </label>
@@ -296,8 +290,7 @@ export default function Profile() {
                     id="push-email"
                     name="push-notifications"
                     type="radio"
-                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600"
-                  />
+                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600" />
                   <label htmlFor="push-email" className="block text-sm font-medium leading-6 text-white">
                     Same as email
                   </label>
@@ -307,8 +300,7 @@ export default function Profile() {
                     id="push-nothing"
                     name="push-notifications"
                     type="radio"
-                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600"
-                  />
+                    className="h-4 w-4 border-gray-300 text-white600 focus:ring-indigo-600" />
                   <label htmlFor="push-nothing" className="block text-sm font-medium leading-6 text-white">
                     No push notifications
                   </label>
@@ -330,6 +322,6 @@ export default function Profile() {
           Save
         </button>
       </div>
-    </form>
+    </form></>
   )
 }

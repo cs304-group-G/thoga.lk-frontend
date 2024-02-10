@@ -22,7 +22,7 @@ const AddProduct = () => {
 
     try {
       
-      await axios.post('/api/v1/product', formData);
+      await axios.post('http://localhost:8080/api/v1/product', formData);
 
       // Clear the form after successful submission
       setFormData({
