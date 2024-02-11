@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
+import { linkClasses } from "@mui/material";
 
 const navigation = [
   { name: "About us", href: "#", current: false },
@@ -37,8 +39,9 @@ export default function FNavbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <div className="flex ">
                     <p className="text-[#ff1b1b] font-bold pl-36 text-4xl sm:text-7xl">
-                      THOGA.{" "}
+                      THOGA.
                     </p>
+
                     <p className="text-[#000000] font-bold text-4xl sm:text-7xl">
                       LK
                     </p>
@@ -200,9 +203,11 @@ export default function FNavbar() {
                     {/* About us*/}
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
-                        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
-                          About Us
-                        </Menu.Button>
+                        <Link to="Aboutuspage">
+                          <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
+                            About Us
+                          </Menu.Button>
+                        </Link>
                       </div>
                     </Menu>
                     {/* About us */}
@@ -210,9 +215,20 @@ export default function FNavbar() {
                     {/* Log in*/}
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
-                        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
-                          Log in
-                        </Menu.Button>
+                        <Link to="Loginpage">
+                          <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
+                            Log in
+                          </Menu.Button>
+                        </Link>
+                      </div>
+                    </Menu>
+                    <Menu as="div" className="relative inline-block text-left">
+                      <div>
+                        <Link to="LoginpageRegisterpage">
+                          <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
+                            Register
+                          </Menu.Button>
+                        </Link>
                       </div>
                     </Menu>
                     {/*Log in */}
@@ -270,15 +286,24 @@ export default function FNavbar() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="Profile"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
+                          // <a
+                          //   href="#"
+                          //   className={classNames(
+                          //     active ? "bg-gray-100" : "",
+                          //     "block px-4 py-2 text-sm text-gray-700"
+                          //   )}
+                          // >
+                          //   Your Profile
+                          // </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>

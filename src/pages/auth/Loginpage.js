@@ -1,10 +1,12 @@
 import React from "react";
 import FNavbar from "../../components/FNavbar";
+import { Link } from "react-router-dom";
 
 const Loginpage = () => {
   return (
     
-    <div className="">
+    
+    <div className="bg-[#5136a5] h-[100vh]">
       <FNavbar/>
       <div className="p-5 px-[5rem] grid grid-cols-2 bg-primary-red text-white">
         <div className="p-5 w-full text-center justify-center">
@@ -16,10 +18,10 @@ const Loginpage = () => {
           <p className="text-2xl">Checkout Thoga.lk Socials</p>
         </div>
       </div>
-      <div className="container px-[20rem] pt-[5rem]">
+      <div className="container px-[20rem] pt-[5rem] ">
         <div className="grid grid-cols-2 gap-[5rem]">
           <div className="w-full">
-            <div className="sm:col-span-3 py-3">
+            {/* <div className="sm:col-span-3 py-3">
               <label
                 htmlFor="first-name"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -35,8 +37,8 @@ const Loginpage = () => {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
-            <div className="sm:col-span-3 py-3">
+            </div> */}
+            {/* <div className="sm:col-span-3 py-3">
               <label
                 htmlFor="first-name"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -52,7 +54,7 @@ const Loginpage = () => {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> */}
             <div className="sm:col-span-3 py-3">
               <label
                 htmlFor="first-name"
@@ -123,7 +125,7 @@ const Loginpage = () => {
                 />
               </div>
             </div>
-            <div className="sm:col-span-3 py-3">
+            {/* <div className="sm:col-span-3 py-3">
               <label
                 htmlFor="first-name"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -139,13 +141,17 @@ const Loginpage = () => {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> */}
             <div className="sm:col-span-3 pt-5">
-              <button className="py-2 w-full border-2 border-solid rounded-xl">Register</button>
+              <button className="py-2 w-full border-2 border-solid rounded-xl">Login</button>
             </div>
+            
           </div>
         </div>
       </div>
+      
+      
+    
     </div>
   );
 };

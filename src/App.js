@@ -1,10 +1,12 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loginpage from "./pages/auth/Loginpage";
-import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
 import Profile from "./pages/Profile";
+import Aboutuspage from "./pages/auth/Aboutuspage";
+import Registerpage from "./pages/auth/Registerpage";
+import { Chat } from "@mui/icons-material";
 
 const router = createBrowserRouter([
   {
@@ -19,17 +21,25 @@ const router = createBrowserRouter([
 
   {
     path: "/Registerpage",
-    element: <Registerpage />,
+    element: <Registerpage/>,
   },
 
   {
     path: "/Productpage",
     element: <Productpage />,
   },
+  {
+    path: "/Aboutuspage",
+    element: <Aboutuspage/>,
+  },
 
   {
     path: "/Profile",
     element: <Profile />,
+  },
+  {
+    path: "/Chat",
+    element: <Chat/>,
   },
 ]);
 function App() {
