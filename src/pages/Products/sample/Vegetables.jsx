@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 export default function Vegetables() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/product/');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
 
+    fetchProducts();
+  }, []);
   return (
     <>
     <section>
@@ -287,8 +300,6 @@ export default function Vegetables() {
                       <span class="text-sm font-medium text-gray-700"> Jaffna </span>
                     </label>
                   </li>
-
-              
                 </ul>
               </div>
             </details>
@@ -297,80 +308,38 @@ export default function Vegetables() {
       </div>
 
       <div class="lg:col-span-3">
-        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <li>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <li key={product.id}>
             <a href="#" class="group block overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1506365069540-904bcc762636?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={product.photo}
                 alt=""
                 className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
               />
 
               <div class="relative bg-white pt-3">
-                <h3
-                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
-                >
-                  Bell pepper
+                <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                  {product.title}
+                  
                 </h3>
+                <div className="">
+                <span>{product.city}</span>
+                  <span>{product.description}</span>
+                </div>
+                
 
                 <p class="mt-2">
+                  
                   <span class="sr-only"> Regular Price </span>
-
-                  <span class="tracking-wider text-gray-900"> Rs 30.00   </span>
+                  <span class="tracking-wider text-gray-900"> Rs {product.price}</span>
                 </p>
               </div>
             </a>
           </li>
-
-          <li>
-            <a href="#" class="group block overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1561635741-c416a5193b6e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
-              />
-
-              <div class="relative bg-white pt-3">
-                <h3
-                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
-                >
-                  Potato
-                </h3>
-
-                <p class="mt-2">
-                  <span class="sr-only"> Regular Price </span>
-
-                  <span class="tracking-wider text-gray-900"> Rs 250.00 </span>
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="group block overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1598030343246-eec71cb44231?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
-              />
-
-              <div class="relative bg-white pt-3">
-                <h3
-                  class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4"
-                >
-                 Cabbage
-                </h3>
-
-                <p class="mt-2">
-                  <span class="sr-only"> Regular Price </span>
-
-                  <span class="tracking-wider text-gray-900"> Rs 400.00</span>
-                </p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
+    </div>
     </div>
   </div>
 </section>
