@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import FNavbar from "../components/FNavbar";
 
 export default function Profile() {
   return (
     <div>
-      <Navbar />
+      <FNavbar/>
       <div className="grid grid-cols-2 grid-flow-col gap-4 pt-[5rem]">
         <div className="border-r-4 border-indigo-500 w-full">
           <h1 className="text-5xl font-semibold text-center pt-[10rem]">
