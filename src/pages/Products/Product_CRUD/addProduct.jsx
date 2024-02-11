@@ -32,8 +32,9 @@ formdata.append("photos", photos);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(photos);
     // try {
-      await axios.post("http://localhost:8080/api/v1/product", formdata, {
+      await axios.post("http://localhost:8080/api/v1/product/", formdata, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization:
@@ -158,7 +159,8 @@ formdata.append("photos", photos);
           <input
             type="file"
             id="photos"
-            name="Add Photos"
+            name="photos"
+            
             onChange={(e) => setPhotos(e.target.files)}
             className="mt-1 p-2 border rounded w-full"
             multiple

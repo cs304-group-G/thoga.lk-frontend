@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import AddProduct from "../Product_CRUD/addProduct";
+import { Link } from "react-router-dom";
 
 
 export default function Vegetables() {
@@ -6,7 +8,7 @@ export default function Vegetables() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/product/');
+        const response = await  fetch('http://localhost:8080/api/v1/product');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -20,6 +22,7 @@ export default function Vegetables() {
     <>
     <section>
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <Link to='/addProduct' className="bg-blue-700 text-white hover:bg-slate-200 rounded-lg  hover:text-black p-2 ">Add Product </Link>
     <header>
       <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">VEGETABLES</h2>
 
@@ -310,11 +313,11 @@ export default function Vegetables() {
       <div class="lg:col-span-3">
       <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
-          <li key={product.id}>
+          <li key={product._id}>
             <a href="#" class="group block overflow-hidden">
               <img
-                src={product.photo}
-                alt=""
+                src={product.photos}
+                
                 className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[300px]"
               />
 
@@ -323,9 +326,9 @@ export default function Vegetables() {
                   {product.title}
                   
                 </h3>
-                <div className="">
-                <span>{product.city}</span>
-                  <span>{product.description}</span>
+                <div className="flex flex-col ">
+                <span>City : {product.city}</span>
+                  <span>Description : {product.description}</span>
                 </div>
                 
 
