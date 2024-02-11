@@ -18,6 +18,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import Admin from "./pages/Admin/Admin";
 import Profile from './pages/Profile/profile'
 import SingleProduct from "./pages/Products/singleProduct";
+import AdminNew from "./pages/Admin/AdminNew";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,9 +32,10 @@ const router = createBrowserRouter(
       <Route path="/fruits" element={<Fruits />} />
       <Route path="/items" element={<Items/>} />
       <Route path="/addProduct" element={<AddProduct/>} />
-      <Route path="/admin" element={<Admin/>} />
+       <Route path="/adminD" element={<Admin/>} />
       <Route path="/profile" element={<Profile/>} />
       <Route path= "/single" element={<SingleProduct/>} />
+      <Route path= "/admin" element={<AdminNew/>} />
    
   
   

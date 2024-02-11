@@ -3,8 +3,8 @@ import React from 'react'
 export default function viewProduct() {
   return (
     <section className="bg-agri1 bg-cover ">
-  <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-    <div className="mx-auto max-w-xl text-center">
+  <div className="mx-auto max-w-screen-xl  px-4 py-32 lg:flex lg:h-screen lg:items-center">
+    <div className=" max-w-xl text-center mx-auto">
       <h1 className="text-3xl font-extrabold sm:text-5xl">
        Rooted in Trust
         <strong className="font-extrabold text-red-700 sm:block"> Direct from FARM to YOU </strong>

@@ -347,7 +347,7 @@ export default function Vegetables() {
           </li>
 
           <li>
-            <a href="#" class="group block overflow-hidden">
+            <a href="/admin" class="group block overflow-hidden">
               <img
                 src="https://images.unsplash.com/reserve/RNm0KceQ4Gbpb0xldOe7_DSC_0679_2.JPG?q=80&w=1414&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D  "
                 alt=""
