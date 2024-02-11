@@ -27,10 +27,7 @@ const Loginpage = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.token && res.data.role) {
-          Cookies.set("au_thogalk", res.data, {
-            path: "/",
-            maxAge: 60 * 60 * 24,
-          });
+          Cookies.set("au_thogalk", res.data);
           window.location.href = "/";
         } else {
           alert("error occured plese try again");
@@ -91,12 +88,13 @@ const Loginpage = () => {
                     Password
                   </label>
                   <div className="text-sm">
-                    <a
+                    {/* <a
                       href="#"
                       className="font-semibold text-indigo-600 hover:text-indigo-500"
                     >
                       Forgot password?
-                    </a>
+                    </a> */}
+                    <Link to="/auth/forget-password">Forgot password?</Link>
                   </div>
                 </div>
                 <div className="mt-2">

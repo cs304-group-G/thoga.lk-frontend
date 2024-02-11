@@ -6,7 +6,7 @@ const navigation = [
   { name: "About us", href: "#", current: false },
   { name: "Categories", href: "#", current: false },
   { name: "Language", href: "#", current: false },
-  { name: "Log in", href: "#", current: false },
+  { name: "Log in", href: "/auth/login", current: false },
 ];
 
 function classNames(...classes) {
@@ -46,9 +46,22 @@ export default function FNavbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex  pt-[1.5rem]">
                     {navigation.map((item) => (
-                      <a
+                      // <a
+                      //   key={item.name}
+                      //   href={item.href}
+                      //   className={classNames(
+                      //     item.current
+                      //       ? "bg-gray-900 text-white"
+                      //       : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      //     "rounded-md px-3 py-2 text-sm font-medium"
+                      //   )}
+                      //   aria-current={item.current ? "page" : undefined}
+                      // >
+                      //   {item.name}
+                      // </a>
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -58,7 +71,7 @@ export default function FNavbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
