@@ -10,6 +10,9 @@ import FNavbar from "../components/FNavbar";
 const Homepage = () => {
   return (
     <>
+      <Navbar />
+      <ProductHome/>
+      {/* <Productpage/> */}
       <FNavbar />
       {/* <Navbar /> */}
 

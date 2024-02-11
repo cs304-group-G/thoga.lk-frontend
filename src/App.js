@@ -4,7 +4,15 @@ import Loginpage from "./pages/auth/Loginpage";
 import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
-import Profile from "./pages/Profile";
+import Vegetables from "./pages/Products/sample/Vegetables";
+import Fruits from "./pages/Products/sample/Fruits";
+import Items from "./pages/Products/sample/Items";
+import AddProduct from "./pages/Products/Product_CRUD/addProduct";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import Admin from "./pages/Admin/Admin";
+import Profile from './pages/Profile/profile'
+import SingleProduct from "./pages/Products/singleProduct";
+import AdminNew from "./pages/Admin/AdminNew";import Profile from "./pages/Profile";
 import ForgetPassword from "./pages/auth/ForgetPassword";
 
 const router = createBrowserRouter([

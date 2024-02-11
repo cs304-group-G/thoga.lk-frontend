@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddProduct from "../Product CRUD/addProduct";
+import AddProduct from "../Product_CRUD/addProduct";
 
 const AddProductButton = () => {
   const [showAddProduct, setShowAddProduct] = useState(false);
