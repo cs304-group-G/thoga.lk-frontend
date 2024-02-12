@@ -1,64 +1,53 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 const AddProduct = () => {
-
-  // const [formData, setFormData] = useState({
-  //   title: "",
-  //   description: "",
-  //   price: "",
-  //   city: "",
-  //   photoUrls: "",
-  // });
-
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [city, setCity] = useState("");
-  const [photos,setPhotos] = useState([]);
-
-const formdata = new FormData();
-formdata.append("title", title);
-formdata.append("description", description);
-formdata.append("price", price);
-formdata.append("city", city);
-formdata.append("photos", photos);
+  const [photos, setPhotos] = useState([]);
 
   const [alert, setAlert] = useState(null);
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(Array.from(photos));
+    const formdata = new FormData();
+    formdata.append("title", title);
+    formdata.append("description", description);
+    formdata.append("price", price);
+    formdata.append("city", city);
+    formdata.append("photos", Array.from(photos));
+
     console.log(photos);
     // try {
-      await axios.post("http://localhost:8080/api/v1/product/", formdata, {
+    await axios
+      .post("http://localhost:8080/api/v1/product/", formdata, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxhc2luZHVhQGdtYWlsLmNvbSIsImlhdCI6MTcwNzY4NDA2MiwiZXhwIjoxNzA3NzcwNDYyfQ.NfEQIytDu_w8XnFtzIQnil_YTWOy7IKLQYywU7wWUj8",
         },
-        
       })
       .then((result) => {
         console.log(result);
-      
-        
-      }).catch((err) => {
+        // alert("Vegetable added successfully!")
+        // window.location.href = "/product/vegitables"
+      })
+      .catch((err) => {
         console.log(err);
       });
 
-      // Display success alert
-      setAlert({
-        type: "success",
-        message: "Vegetable added successfully!",
-      });
+    // Display success alert
+    setAlert({
+      type: "success",
+      message: "Vegetable added successfully!",
+    });
 
-      // Clear the form after successful submission
-  }  
-  
+    // Clear the form after successful submission
+  };
 
   return (
     <div className=" bg-cover pt-4  bg-agri2 w-screen h-screen    ">
@@ -73,7 +62,12 @@ formdata.append("photos", photos);
           {alert.message}
         </div>
       )}
-  <Link to='/vegetables' className="bg-blue-900 hover:bg-slate-100  text-white  hover:text-black hover:font-bold  text-bold absolute top-20  p-2 ml-2  ">back to products </Link>
+      <Link
+        to="/product/vegitables"
+        className="bg-blue-900 hover:bg-slate-100  text-white  hover:text-black hover:font-bold  text-bold absolute top-20  p-2 ml-2  "
+      >
+        back to products{" "}
+      </Link>
       <form
         onSubmit={handleSubmit}
         className="max-w-md  mx-auto border-[5px] font-bold  border-green-400   p-6"
@@ -160,7 +154,6 @@ formdata.append("photos", photos);
             type="file"
             id="photos"
             name="photos"
-            
             onChange={(e) => setPhotos(e.target.files)}
             className="mt-1 p-2 border rounded w-full"
             multiple

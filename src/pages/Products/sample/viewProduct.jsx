@@ -19,14 +19,14 @@ export default function viewProduct() {
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <a
           className="block w-full rounded bg-green-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
-          href="/vegetables"
+          href="/product/vegitables"
         >
           Vegetables
         </a>
 
         <a
           className="block w-full rounded px-12 py-3 bg-red-600 text-sm font-medium text-white shadow hover:bg-gray-700  focus:outline-none focus:ring active:text-red-500 sm:w-auto"
-          href="fruits"
+          href="/product/fruits"
         >
           Fruits
         </a>
