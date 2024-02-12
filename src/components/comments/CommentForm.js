@@ -16,7 +16,7 @@ const CommentForm = ({
   };
   return (
     <form onSubmit={submitHandler}>
-      <div className="flex flex-col items-end border border-primary rounded-1g p-4">
+      <div className="flex flex-col w-full items-end border border-solid border-stone-600 rounded-2xl p-4">
         <textarea
           className="w-full focus:outline-none bg-transparent"
           rows="5"

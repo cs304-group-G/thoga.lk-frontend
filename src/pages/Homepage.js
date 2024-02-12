@@ -6,18 +6,22 @@ import CarouselFruits from "../components/CarouselFruits";
 import CarouselFish from "../components/CarouselFish";
 import Footer from "../components/Footer";
 import FNavbar from "../components/FNavbar";
+import Productpage from "./Productpage";
+import ViewProduct from "./Products/sample/viewProduct";
 
 const Homepage = () => {
   return (
     <>
-      <Navbar />
-      <ProductHome/>
+      {/* <Navbar /> */}
+      {/* <ProductHome/> */}
       {/* <Productpage/> */}
       <FNavbar />
       {/* <Navbar /> */}
 
       <Carousel />
 
+      {/* <Productpage /> */}
+      <ViewProduct />
       <div className="bg-[#e5eef1] pt-[4rem] pb-[10rem] ">
         <div className="grid grid-cols-1 sm:grid-cols-10">
           <div></div>

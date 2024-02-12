@@ -27,7 +27,7 @@ const Comment = ({
   const replyOnUserId = comment.user._id;
 
   return (
-    <div className="flex flex-nowrap items-start gap-x-3 bg-[#F2F4F5] p-3 rounded-1g">
+    <div className="flex flex-nowrap items-start gap-x-3 bg-[#28a62c] p-3 my-5 rounded-2xl">
       <div className="flex-1 flex flex-col">
         <h5 className="font-bold text-dark-hard text-xs lg:text-sm">
           {comment.user.name}
@@ -40,12 +40,11 @@ const Comment = ({
             hour: "2-digit",
           })}
         </span>
-        
-        
-          <p className="font-opensans mt-[10px] text-dark-light">
+
+        <p className="font-opensans mt-[10px] text-dark-light">
           {comment.desc}
         </p>
-        
+
         {isEditing && (
           <CommentForm
             btnLabel="Update"
@@ -79,9 +78,9 @@ const Comment = ({
                 <span>Edit</span>
               </button>
 
-              <button 
-              className="flex items-center space-x-2" 
-              onClick={() => deleteComment(comment._id)}
+              <button
+                className="flex items-center space-x-2"
+                onClick={() => deleteComment(comment._id)}
               >
                 <FiTrash2 className="w-4 h-auto" />
                 <span>Delete</span>
@@ -99,9 +98,9 @@ const Comment = ({
           />
         )}
         {replies.length > 0 && (
-          <div> 
+          <div>
             {replies.map((reply) => (
-              <Comment 
+              <Comment
                 key={reply.id}
                 addComment={addComment}
                 affectedComment={affectedComment}
@@ -109,7 +108,7 @@ const Comment = ({
                 deleteComment={deleteComment}
                 logginedUserId={logginedUserId}
                 replies={[]}
-                updateComment = {updateComment}
+                updateComment={updateComment}
                 parentId={comment.id}
               />
             ))}

@@ -99,7 +99,7 @@ const ForgetPassword = () => {
                       {!open && (
                         <Disclosure.Button
                           onClick={() => requestReset()}
-                          className="flex w-full rounded-lg bg-purple px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75 justify-center"
+                          className="flex w-full rounded-lg bg-indigo-500 px-4 py-2 text-left text-sm font-medium text-purple-100 hover:bg-purple focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75 justify-center"
                         >
                           <span>Find</span>
                         </Disclosure.Button>

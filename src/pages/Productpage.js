@@ -4,14 +4,13 @@ import DashBoard from "./Products/components/dashBoard";
 import SingleProduct from "./Products/singleProduct";
 import Vegetables from "./Products/sample/Vegetables";
 import ViewProduct from "./Products/sample/viewProduct";
+import FNavbar from "../components/FNavbar";
 
 const Productpage = () => {
   return (
     <>
-     
-      <ViewProduct/>
-      
-      <Navbar />
+      <FNavbar />
+      {/* <ViewProduct /> */}
       <div className="grid grid-cols-2 container ">
         <div className="flex justify-center ">
           <img
@@ -29,11 +28,9 @@ const Productpage = () => {
           <p>contact seller</p>
           <p>see other item seller</p>
         </div>
-        
       </div>
-      
-      
-      <CommentsContainer logginedUserId="a"/>
+
+      <CommentsContainer logginedUserId="a" />
     </>
   );
 };

@@ -64,13 +64,15 @@ const CommentsContainer = ({ logginedUserId }) => {
   };
 
   return (
-    <div className="mt-10 px-[16rem]">
-      <CommentForm
-        btnLabel="Send"
-        formSubmitHandler={(value) => addCommentHandler(value)}
-      />
-      <div className="flex justify-center">
-        <div className="w-4/5 space-y-4 mt-8">
+    <div className="flex justify-center w-3/4">
+      <div className="flex justify-around w-full h-14">
+        <CommentForm
+          btnLabel="Send"
+          formSubmitHandler={(value) => addCommentHandler(value)}
+        />
+      </div>
+      <div className="flex justify-end w-full">
+        <div className="w-full mt-1">
           {mainComments.map((comment) => (
             <Comment
               key={comment._id}

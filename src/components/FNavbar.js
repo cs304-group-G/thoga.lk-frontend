@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom/dist";
 
 const navigation = [
   { name: "About us", href: "#", current: false },
@@ -211,7 +212,7 @@ export default function FNavbar() {
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
                         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold text-gray-900  ring-inset ring-gray-300 hover:bg-gray-50">
-                          Log in
+                          <Link to="/auth/login">Log in</Link>
                         </Menu.Button>
                       </div>
                     </Menu>
