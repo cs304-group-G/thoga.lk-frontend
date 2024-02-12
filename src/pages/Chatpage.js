@@ -2,36 +2,38 @@ import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Chatpage() {
-  const myid = "65c91caf565830fb7d624304";
-  const messages = [
-    {
-      _id: "65c91caf565830fb7d624304",
-      user1: "65c7d5a4b63266a992bc2b33",
-      user2: "65c7d5a4b63266a992bc2b33",
-      unreadCount: 0,
-      messages: [
-        {
-          _id: "65c91cb0565830fb7d624306",
-          senderId: "65c7d5a4b63266a992bc2b33",
-          message: "test message 1 to another",
-          createdAt: "2024-02-11T19:14:56.194Z",
-          updatedAt: "2024-02-11T19:14:56.194Z",
-          __v: 0,
-        },
-        {
-          _id: "65c91cbf565830fb7d62430b",
-          senderId: "65c7d5a4b63266a992bc2b33",
-          message: "test message 2 to myself",
-          createdAt: "2024-02-11T19:15:11.491Z",
-          updatedAt: "2024-02-11T19:15:11.491Z",
-          __v: 0,
-        },
-      ],
-      createdAt: "2024-02-11T19:14:55.859Z",
-      updatedAt: "2024-02-11T19:15:11.896Z",
-      __v: 0,
-    },
-  ];
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxhc2luZHVhQGdtYWlsLmNvbSIsImlhdCI6MTcwNzc2NjQ1NiwiZXhwIjoxODA3ODUyODU2fQ.4a9NeERLKgRlTEzpFh4VPBF9oDwRSyvcb6IMp6t7uWs";
+  // const myid = "65c91caf565830fb7d624304";
+  // const messages = [
+  //   {
+  //     _id: "65c91caf565830fb7d624304",
+  //     user1: "65c7d5a4b63266a992bc2b33",
+  //     user2: "65c7d5a4b63266a992bc2b33",
+  //     unreadCount: 0,
+  //     messages: [
+  //       {
+  //         _id: "65c91cb0565830fb7d624306",
+  //         senderId: "65c7d5a4b63266a992bc2b33",
+  //         message: "test message 1 to another",
+  //         createdAt: "2024-02-11T19:14:56.194Z",
+  //         updatedAt: "2024-02-11T19:14:56.194Z",
+  //         __v: 0,
+  //       },
+  //       {
+  //         _id: "65c91cbf565830fb7d62430b",
+  //         senderId: "65c7d5a4b63266a992bc2b33",
+  //         message: "test message 2 to myself",
+  //         createdAt: "2024-02-11T19:15:11.491Z",
+  //         updatedAt: "2024-02-11T19:15:11.491Z",
+  //         __v: 0,
+  //       },
+  //     ],
+  //     createdAt: "2024-02-11T19:14:55.859Z",
+  //     updatedAt: "2024-02-11T19:15:11.896Z",
+  //     __v: 0,
+  //   },
+  // ];
 
   const [userData, setuserData] = useState(null);
   const [message, setMessage] = useState(null);
@@ -41,8 +43,7 @@ export default function Chatpage() {
     axios
       .get("http://localhost:8080/api/v1/auth/userdata", {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxhc2luZHVhQGdtYWlsLmNvbSIsImlhdCI6MTcwNzY3ODc4MywiZXhwIjoxNzA3NzY1MTgzfQ.cn_NK98rZKH3NOfMa49cO7bScdNLHNvgW4cAtHiaa9M",
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
@@ -57,8 +58,7 @@ export default function Chatpage() {
     axios
       .get(`http://localhost:8080/api/v1/chat/${userId}`, {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxhc2luZHVhQGdtYWlsLmNvbSIsImlhdCI6MTcwNzY3ODc4MywiZXhwIjoxNzA3NzY1MTgzfQ.cn_NK98rZKH3NOfMa49cO7bScdNLHNvgW4cAtHiaa9M",
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
@@ -79,13 +79,13 @@ export default function Chatpage() {
         },
         {
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxhc2luZHVhQGdtYWlsLmNvbSIsImlhdCI6MTcwNzY3ODc4MywiZXhwIjoxNzA3NzY1MTgzfQ.cn_NK98rZKH3NOfMa49cO7bScdNLHNvgW4cAtHiaa9M",
+            Authorization: `Bearer ${token}`,
           },
         }
       )
       .then((result) => {
         getChat("65c91caf565830fb7d624304");
+        setMessageInput("");
       })
       .catch((err) => {
         console.log(err);
@@ -102,8 +102,8 @@ export default function Chatpage() {
   }, []);
 
   return (
-    <div className="bg-[#5136a5] h-[100vh] w-full">
-      <h1>
+    <div className="bg-[#5136a5] h-screen w-full">
+      <h1 className="text-4xl p-3 text-white font-bold">
         {userData &&
           message &&
           (userData.userId == message.user1.userId
@@ -116,8 +116,8 @@ export default function Chatpage() {
           <div key={item._id} className="grid grid-cols-1 md:grid-cols-3">
             <div></div>
             <div>
-              <div className="pt-[4rem] bg-[]">
-                <p className="ring-offset-2 ring-2 pt-[2rem] text-white bg-[#005c4b] flex items-center border rounded-md p-2">
+              <div className="pt-[2rem] bg-[]">
+                <p className="ring-offset-2 ring-2 pt-2 text-white bg-[#005c4b] flex items-center border rounded-md p-2">
                   {item.message}
                 </p>
                 <p className="text-right">{item.updatedAt}</p>
@@ -126,7 +126,7 @@ export default function Chatpage() {
             <div></div>
           </div>
         ))}
-      <div class="bg-gray-200 p-4 fixed bottom-0 w-full">
+      <div class="p-4 fixed bottom-0 w-full">
         <div>
           <div class="relative">
             <div class="max-w-md mx-auto bg-white rounded-md shadow-md p-4">

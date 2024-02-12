@@ -18,7 +18,7 @@ import ForgetPassword from "./pages/auth/ForgetPassword";
 import Aboutuspage from "./pages/auth/Aboutuspage";
 import Registerpage from "./pages/auth/Registerpage";
 import ChatPage from "./pages/Chatpage";
-import FullProduct from './pages/Products/FullProduct'
+import FullProduct from "./pages/Products/FullProduct";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <Productpage />,
   },
   {
-    path: "/Aboutuspage",
+    path: "/aboutuspage",
     element: <Aboutuspage />,
   },
 
@@ -61,10 +61,6 @@ const router = createBrowserRouter([
   {
     path: "/product/addProduct",
     element: <AddProduct />,
-  },
-  {
-    path: "/product/vegitables",
-    element: <Vegetables />,
   },
   {
     path: "/product/single",
@@ -86,31 +82,15 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <AdminNew />,
   },
-
-  // <Route path="/signin" element={<Loginpage />} />
-  // <Route path="/" element={<Loginpage />} />
-  // <Route path="/register" element={<Registerpage />} />
-  // <Route path="/productHome" element={<Homepage />} />
-  // <Route path="/product" element={<Productpage />} />
-  // <Route path="/vegetables" element={<Vegetables />} />
-  // <Route path="/fruits" element={<Fruits />} />
-  // <Route path="/items" element={<Items/>} />
-  // <Route path="/addProduct" element={<AddProduct/>} />
-  //  <Route path="/adminD" element={<Admin/>} />
-  // <Route path="/profile" element={<Profile/>} />
-  // <Route path= "/single" element={<SingleProduct/>} />
-  // <Route path= "/admin" element={<AdminNew/>} />
   {
     path: "/Chat",
     element: <ChatPage />,
   },
-  {path: "/product/:id",
-element: <FullProduct/>}
+  { path: "/product/:id", element: <FullProduct /> },
 ]);
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
       <RouterProvider router={router} />
     </>
   );
