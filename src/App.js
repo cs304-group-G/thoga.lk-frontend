@@ -6,7 +6,7 @@ import Productpage from "./pages/Productpage";
 import Profile from "./pages/Profile";
 import Aboutuspage from "./pages/auth/Aboutuspage";
 import Registerpage from "./pages/auth/Registerpage";
-import { Chat } from "@mui/icons-material";
+import ChatPage from "./pages/Chatpage";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 
   {
     path: "/Registerpage",
-    element: <Registerpage/>,
+    element: <Registerpage />,
   },
 
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Aboutuspage",
-    element: <Aboutuspage/>,
+    element: <Aboutuspage />,
   },
 
   {
@@ -39,17 +39,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/Chat",
-    element: <Chat/>,
+    element: <ChatPage />,
   },
 ]);
 function App() {
   return (
     <>
-      <RouterProvider router={router}/>
-  
+      <RouterProvider router={router} />
     </>
   );
-
 }
 
 // const router = createBrowserRouter(
@@ -63,7 +61,4 @@ function App() {
 //   )
 // );
 
-
-
 export default App;
-
