@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const FullProduct = () => {
+const   FullProduct = () => {
     const { id } = useParams();
     const [product, setProductDetails] = useState([]);
   

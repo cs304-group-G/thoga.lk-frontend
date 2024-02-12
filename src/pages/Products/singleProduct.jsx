@@ -50,7 +50,7 @@ export default function SingleProduct() {
       </div>
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {sortedProducts.map((product) => (
-            <div key={products.id} className="group relative">
+            <Link  to={`/product/${product._id}`} key={products.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                   src='https://plus.unsplash.com/premium_photo-1675366071307-4be5bda2ceda?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
@@ -70,7 +70,7 @@ export default function SingleProduct() {
                 </div>
                 <p className="text-sm font-medium text-gray-900">Rs : {product.price}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
