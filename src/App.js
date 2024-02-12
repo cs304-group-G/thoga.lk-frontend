@@ -1,7 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loginpage from "./pages/auth/Loginpage";
-import Registerpage from "./pages/auth/Registerpage";
 import Homepage from "./pages/Homepage";
 import Productpage from "./pages/Productpage";
 import Vegetables from "./pages/Products/sample/Vegetables";
@@ -16,6 +15,9 @@ import SingleProduct from "./pages/Products/singleProduct";
 import AdminNew from "./pages/Admin/AdminNew";
 // import Profile from "./pages/Profile";
 import ForgetPassword from "./pages/auth/ForgetPassword";
+import Aboutuspage from "./pages/auth/Aboutuspage";
+import Registerpage from "./pages/auth/Registerpage";
+import ChatPage from "./pages/Chatpage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,11 @@ const router = createBrowserRouter([
     path: "/products",
     element: <Productpage />,
   },
+  {
+    path: "/Aboutuspage",
+    element: <Aboutuspage />,
+  },
+
   {
     path: "/product/Profile",
     element: <Profile />,
@@ -88,10 +95,15 @@ const router = createBrowserRouter([
   // <Route path="/profile" element={<Profile/>} />
   // <Route path= "/single" element={<SingleProduct/>} />
   // <Route path= "/admin" element={<AdminNew/>} />
+  {
+    path: "/Chat",
+    element: <ChatPage />,
+  },
 ]);
 function App() {
   return (
     <>
+      <RouterProvider router={router} />
       <RouterProvider router={router} />
     </>
   );

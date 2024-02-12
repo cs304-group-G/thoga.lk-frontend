@@ -61,6 +61,7 @@ export default function Carauselitems() {
               src="https://media.istockphoto.com/id/1436652705/photo/dirty-hands-clean-soul.jpg?s=2048x2048&w=is&k=20&c=wlc95FGd-L0CajLMJr9Y2u1-xenzLtfi7c66g2UpNyo="
               alt="carrot"
             />
+            <Rating />
           </div>
           <div className="overflow-hidden px-4">
             <img
@@ -68,6 +69,7 @@ export default function Carauselitems() {
               src="https://media.istockphoto.com/id/1255225875/photo/leek-harvest.jpg?s=2048x2048&w=is&k=20&c=cQnSpWpaoFU0lz74M-lTJS8HIGbY36cU9CUGx2gE9yY="
               alt="leeks"
             />
+            <Rating />
           </div>
           <div className="overflow-hidden px-4">
             <img
@@ -75,6 +77,7 @@ export default function Carauselitems() {
               src="https://media.istockphoto.com/id/892022394/photo/row-of-onions.jpg?s=2048x2048&w=is&k=20&c=sSzGzL34X9zSQMmcUMLsIU61Y6vrDJ59_iyjfRjPc-U="
               alt="onion"
             />
+            <Rating />
           </div>
           <div className="overflow-hidden px-4">
             <img
@@ -82,6 +85,7 @@ export default function Carauselitems() {
               src="https://media.istockphoto.com/id/1318478175/photo/vegan-raw-vegetables-on-green-wooden-table-background.jpg?s=2048x2048&w=is&k=20&c=07xwmZkg-aMfaVOE0hXyqjjz2wMF3XOuOlo0ERR9Pd4="
               alt=""
             />
+            <Rating />
           </div>
           <div className="overflow-hidden px-4">
             <img
@@ -89,6 +93,7 @@ export default function Carauselitems() {
               src="https://media.istockphoto.com/id/1334636811/photo/green-table-filled-with-green-vegetables.jpg?s=2048x2048&w=is&k=20&c=udKDUadGJ1tnpYqzytV8UtZMqvIHjhXtSuxT_WkBw34="
               alt=""
             />
+            <Rating />
           </div>
         </Slider>
       </div>
