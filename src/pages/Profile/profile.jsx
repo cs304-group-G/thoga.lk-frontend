@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Profile() {
   return (
     <>
-    <form className='w-screen  flex flex-col justify-content-center  bg-agri1 text-white  items-center justify-center     '>
+    <form className='w-screen  flex flex-col justify-content-center  bg-agri3 text-white  items-center justify-center     '>
     
     <Link to='/' className='absolute top-2 left-2 p-3 w-24 rounded-lg text-center font-bold bg-transparent border border-white-[2px] hover:bg-slate-700 text-white'>
         

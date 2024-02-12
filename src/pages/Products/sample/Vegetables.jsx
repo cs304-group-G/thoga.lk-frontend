@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddProduct from "../Product_CRUD/addProduct";
 import { Link } from "react-router-dom";
+import Admin from '../../Admin/Admin'
 
 
 export default function Vegetables() {
@@ -21,6 +22,9 @@ export default function Vegetables() {
   return (
     <>
     <section>
+      
+    <Admin/>
+
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <Link to='/addProduct' className="bg-blue-700 text-white hover:bg-slate-200 rounded-lg  hover:text-black p-2 ">Add Product </Link>
     <header>
@@ -29,6 +33,9 @@ export default function Vegetables() {
       <p class="mt-4 max-w-md text-gray-500">
         Search your desired item through the VEGETABLES category
       </p>
+      <button 
+      
+      className='top-20 right-20 absolute bg-blue-500 p-3 rounded-lg text-white hover:text-black hover:bg-slate-300 '>Button</button>
     </header>
 
     <div class="mt-8 block lg:hidden">
