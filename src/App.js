@@ -18,6 +18,7 @@ import ForgetPassword from "./pages/auth/ForgetPassword";
 import Aboutuspage from "./pages/auth/Aboutuspage";
 import Registerpage from "./pages/auth/Registerpage";
 import ChatPage from "./pages/Chatpage";
+import FullProduct from './pages/Products/FullProduct'
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
     path: "/user/profile",
     element: <UserProfile />,
   },
+  {
+    path: "/admin",
+    element: <AdminNew />,
+  },
 
   // <Route path="/signin" element={<Loginpage />} />
   // <Route path="/" element={<Loginpage />} />
@@ -99,6 +104,8 @@ const router = createBrowserRouter([
     path: "/Chat",
     element: <ChatPage />,
   },
+  {path: "/product/:id",
+element: <FullProduct/>}
 ]);
 function App() {
   return (
