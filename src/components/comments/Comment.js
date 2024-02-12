@@ -41,11 +41,11 @@ const Comment = ({
           })}
         </span>
         
-        {isEditing && (
+        
           <p className="font-opensans mt-[10px] text-dark-light">
           {comment.desc}
         </p>
-        )}
+        
         {isEditing && (
           <CommentForm
             btnLabel="Update"
